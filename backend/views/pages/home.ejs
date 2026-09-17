@@ -1,6 +1,4 @@
 
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +8,8 @@
     <link rel="stylesheet" href="/css/mains.css">
 </head>
 <body>
-    <p>Ceci est ma prmière page en EJS !</p>
+    <%- include('../partials/head') %>
+    <p>Ceci est ma première page en EJS !</p>
     <h1>Bonjour
     <% if(nickname && sex){ %>
         <%= sex === 'M' ? 'Mr ' : 'Mme ' %><%= nickname %>
@@ -24,6 +23,7 @@
         <% }%>
         <% }%>
     </h1>
+    <%- include('../partials/foot') %>
 </body>
 </html>
 
