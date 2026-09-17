@@ -17,7 +17,7 @@ app.use(express.json())
 // app.use(cors())
 // app.use('/', (req, res) => {
 
-    
+
 //     const user = req.body;
 //     res.status(200).json({ data: user, message:'La requête est très bien arrivée !'})
 // })
@@ -48,7 +48,7 @@ app.use(express.json())
 
 app.use((req, res) => {
     // demande de rendu EJS
-    res.render('pages/home') ; // on donne le chemin dans views, et on omet le .ejs
+    res.render('pages/home', {nickname:'Hiba', sex: 'M'}) ; // on donne le chemin dans views, et on omet le .ejs
 });
 app.listen(PORT, () => {
     console.log(`Server is running at http://localhost:${PORT}`);

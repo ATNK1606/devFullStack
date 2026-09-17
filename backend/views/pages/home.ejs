@@ -1,5 +1,5 @@
 
-<% user = typeof user !== 'undefined' ? user : 'bel(e) inconnu(e)' ; %>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,6 +11,19 @@
 </head>
 <body>
     <p>Ceci est ma prmière page en EJS !</p>
-    <h1>Bonjour <%= user %></h1>
+    <h1>Bonjour
+    <% if(nickname && sex){ %>
+        <%= sex === 'M' ? 'Mr ' : 'Mme ' %><%= nickname %>
+    <% } else{ %>
+        <% if(nickname){ %>
+            <%= nickname %>  
+        <% } else if (sex){ %>
+            <%= sex === 'M' ? 'bel inconnu' : 'belle inconnue' %>
+        <% } else { %>
+            bel(le) inconnu(e)
+        <% }%>
+        <% }%>
+    </h1>
 </body>
 </html>
+
