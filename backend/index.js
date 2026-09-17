@@ -5,31 +5,36 @@ const path = require('path')
 dotenv.config()
 const PORT = process.env.PORT || 3000;
 
+
 const app = express ();
+app.set('view engine', 'ejs'); // Définition du moteur de rendu
+app.use(express.static(path.join(__dirname, 'public'))); 
+app.set('views', path.join(__dirname, 'views')); // Déclaration du dossier contenant les vues
+
+
 
 app.use(express.json())
 // app.use(cors())
-
-app.use(express.static(path.join(__dirname, 'public')));
-
 // app.use('/', (req, res) => {
+
+    
 //     const user = req.body;
 //     res.status(200).json({ data: user, message:'La requête est très bien arrivée !'})
 // })
 // 1er middleware : ex. d'affichage d'informations dans la console
-app.use((req, res, next) => {
-    const now = new Date().toDateString() ;
-    console.log(`${now} : une requête ${req.method} est arrivée !`);
-    next(); // l'appel à next() transmet les informations pour traitement dans le middleware suivant
-});
+// app.use((req, res, next) => {
+//     const now = new Date().toDateString() ;
+//     console.log(`${now} : une requête ${req.method} est arrivée !`);
+//     next(); // l'appel à next() transmet les informations pour traitement dans le middleware suivant
+// });
 
 
-// // 2ème middleware : préparation de la réponse
-app.use((req, res, next) => {
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'text/html;charset=utf-8');
-    next(); // l'appel à next() transmet les informations pour traitement dans le middleware suivant
-});
+// // // 2ème middleware : préparation de la réponse
+// app.use((req, res, next) => {
+//     res.statusCode = 200;
+//     res.setHeader('Content-Type', 'text/html;charset=utf-8');
+//     next(); // l'appel à next() transmet les informations pour traitement dans le middleware suivant
+// });
 
 // // 3ème middelware : envoi de la réponse
 // app.use((req, res) => {
@@ -40,6 +45,11 @@ app.use((req, res, next) => {
 //     res.sendFile(path.join(__dirname,'index.html'))}
 
 // )
+
+app.use((req, res) => {
+    // demande de rendu EJS
+    res.render('pages/home') ; // on donne le chemin dans views, et on omet le .ejs
+});
 app.listen(PORT, () => {
     console.log(`Server is running at http://localhost:${PORT}`);
 });
