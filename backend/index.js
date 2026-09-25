@@ -11,7 +11,7 @@ app.set('view engine', 'ejs'); // Définition du moteur de rendu
 app.use(express.static(path.join(__dirname, 'public'))); 
 app.set('views', path.join(__dirname, 'views')); // Déclaration du dossier contenant les vues
 
-
+const expressLayouts = require('express-ejs-layouts')
 
 app.use(express.json())
 // app.use(cors())
@@ -45,10 +45,11 @@ app.use(express.json())
 //     res.sendFile(path.join(__dirname,'index.html'))}
 
 // )
-
+app.use(expressLayouts)
+app.set('layout', '../views/layouts/layout')
 app.use((req, res) => {
     // demande de rendu EJS
-    res.render('pages/home', {nickname:'Hiba', sex: 'M'}) ; // on donne le chemin dans views, et on omet le .ejs
+    res.render('pages/home', {nickname: 'Amadou', sex:'M'}) ; // on donne le chemin dans views, et on omet le .ejs
 });
 app.listen(PORT, () => {
     console.log(`Server is running at http://localhost:${PORT}`);
