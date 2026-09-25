@@ -10,20 +10,8 @@
 <body> -->
     <!-- <%- include('../partials/header') %> -->
    <div>
-     <p>Ceci est ma première page en EJS !</p>
-    <h1>Bonjour
-    <% if(nickname && sex){ %>
-        <%= sex === 'M' ? 'Mr ' : 'Mme ' %><%= nickname %>
-    <% } else{ %>
-        <% if(nickname){ %>
-            <%= nickname %>  
-        <% } else if (sex){ %>
-            <%= sex === 'M' ? 'bel inconnu' : 'belle inconnue' %>
-        <% } else { %>
-            bel(le) inconnu(e)
-        <% }%>
-        <% }%>
-    </h1>
+        <p id="text-accueil">Bienvenue sur Démo Routage Express</p>
+        <img src="http://web.gregory-bourguin.fr/download/node/routing.png" alt="">
    </div>
     <!-- <%- include('../partials/footer') %> -->
 <!-- </body>

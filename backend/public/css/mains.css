@@ -8,13 +8,24 @@ body {
     text-align: center;
 }
 
-header, footer {
+#first, footer {
     height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: darkred;
+    background: #a9a9a9;
     color: white;
+}
+
+
+
+
+#boutons {
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    
+
 }
 
 #content {
@@ -32,3 +43,35 @@ header, footer {
     align-items: center;
     overflow: auto;
 }
+
+.header-link {
+    padding: 10px;
+    text-decoration: none; 
+    border-radius: 5px;
+    font-size: larger;
+    color: white;
+    background-color: gray;
+    margin-right: 2px;
+}
+
+
+#text-accueil {
+    text-align: center;
+    font-size: x-large;
+}
+
+#header-title {
+    font-size: larger;
+}
+
+#first {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+}
+
+/* #second{
+    background-color: #808080;
+    border: 2px solid black;
+} */
+

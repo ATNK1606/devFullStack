@@ -47,10 +47,24 @@ app.use(express.json())
 // )
 app.use(expressLayouts)
 app.set('layout', '../views/layouts/layout')
-app.use((req, res) => {
+// app.use((req, res) => {
+//     // demande de rendu EJS
+//     res.render('pages/home', {nickname: 'Amadou', sex:'M'}) ; // on donne le chemin dans views, et on omet le .ejs
+// });
+
+app.get('/about', (req, res) => {
     // demande de rendu EJS
-    res.render('pages/home', {nickname: 'Amadou', sex:'M'}) ; // on donne le chemin dans views, et on omet le .ejs
+    res.render('pages/about') ; // on donne le chemin dans views, et on omet le .ejs
 });
+
+app.get('/home', (req, res) => {
+    // demande de rendu EJS
+    res.render('pages/accueil') ; // on donne le chemin dans views, et on omet le .ejs
+});
+
+app.get('/{*splat}', (req, res) => {
+    res.send('Bonjour')
+})
 app.listen(PORT, () => {
     console.log(`Server is running at http://localhost:${PORT}`);
 });
