@@ -52,15 +52,25 @@ app.set('layout', '../views/layouts/layout')
 //     res.render('pages/home', {nickname: 'Amadou', sex:'M'}) ; // on donne le chemin dans views, et on omet le .ejs
 // });
 
-app.get('/about', (req, res) => {
-    // demande de rendu EJS
-    res.render('pages/about') ; // on donne le chemin dans views, et on omet le .ejs
-});
+// app.get('/about', (req, res) => {
+//     // demande de rendu EJS
+//     res.render('pages/about') ; // on donne le chemin dans views, et on omet le .ejs
+// });
 
-app.get('/home', (req, res) => {
-    // demande de rendu EJS
-    res.render('pages/accueil') ; // on donne le chemin dans views, et on omet le .ejs
-});
+// app.get('/home', (req, res) => {
+//     // demande de rendu EJS
+//     res.render('pages/accueil') ; // on donne le chemin dans views, et on omet le .ejs
+// });
+
+const homeRouter = require('./routes/homeRouter');
+app.use('/', homeRouter);
+
+const researchRouter = require('./routes/researchRouter')
+app.use('/research', researchRouter);
+
+const teachingRouter = require('./routes/teachingRouter')
+app.use('/teaching', teachingRouter);
+
 
 app.get('/{*splat}', (req, res) => {
     res.send('Bonjour')
