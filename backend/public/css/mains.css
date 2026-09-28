@@ -75,3 +75,12 @@ body {
     border: 2px solid black;
 } */
 
+
+#all {
+    padding: 10px;
+    font-size:larger;
+    width: 80%;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    background-color:#dcdcdc;
+}
