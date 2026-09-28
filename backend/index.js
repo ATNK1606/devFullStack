@@ -73,7 +73,7 @@ app.use('/teaching', teachingRouter);
 
 
 app.get('/{*splat}', (req, res) => {
-    res.send('Bonjour')
+    res.redirect('/')
 })
 app.listen(PORT, () => {
     console.log(`Server is running at http://localhost:${PORT}`);
