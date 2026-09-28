@@ -65,11 +65,8 @@ app.set('layout', '../views/layouts/layout')
 const homeRouter = require('./routes/homeRouter');
 app.use('/', homeRouter);
 
-const researchRouter = require('./routes/researchRouter')
-app.use('/research', researchRouter);
-
-const teachingRouter = require('./routes/teachingRouter')
-app.use('/teaching', teachingRouter);
+const aboutRouter = require('./routes/aboutRouter')
+app.use('/about', aboutRouter);
 
 
 app.get('/{*splat}', (req, res) => {
