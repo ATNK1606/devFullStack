@@ -68,9 +68,13 @@ app.use('/jokes', allRouter);
 const randomRouter = require('./routes/randomRouter')
 app.use('/jokes', randomRouter);
 
+const showRouteParamsRouter = require('./routes/showRouteParamsRouter')
+app.use('/user', showRouteParamsRouter)
+
+
 
 app.get('/{*splat}', (req, res) => {
-    res.redirect('/jokes/list')
+    res.redirect('/user/116')
 })
 app.listen(PORT, () => {
     console.log(`Server is running at http://localhost:${PORT}`);
