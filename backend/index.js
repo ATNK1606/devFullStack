@@ -14,6 +14,7 @@ app.set('views', path.join(__dirname, 'views')); // Déclaration du dossier cont
 const expressLayouts = require('express-ejs-layouts')
 
 app.use(express.json())
+app.use(express.urlencoded({extended: false}));
 // app.use(cors())
 // app.use('/', (req, res) => {
 
@@ -72,12 +73,18 @@ app.set('layout', '../views/layouts/layout')
 // app.use('/user', showRouteParamsRouter)
 
 
-const showGetParamsRouter = require('./routes/showGetParamsRouter');
-app.use('/', showGetParamsRouter);
+// const showGetParamsRouter = require('./routes/showGetParamsRouter');
+// app.use('/', showGetParamsRouter);
 
+app.get('/form', (req, res, next) =>{
+    res.render('pages/form');
+})
+
+const showPostDataRouter = require('./routes/showPostDataRouter')
+app.use('/form', showPostDataRouter)
 
 app.get('/{*splat}', (req, res) => {
-    res.redirect('/')
+    res.redirect('/form')
 })
 app.listen(PORT, () => {
     console.log(`Server is running at http://localhost:${PORT}`);

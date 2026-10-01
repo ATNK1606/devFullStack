@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire de saisie</title>
+</head>
+<body>
+    <form action="/form" method="post">
+        <div class="formContainer">
+            <div class="divClass">
+                <label for="firstname" class="formLabel">Prénom</label>
+                <input type="text" id="firstname" name="firstname" class="formInput" placeholder="Veuillez saisir votre prénom">
+            </div>
+            <div class="divClass">
+                <label for="name" class="formLabel">Nom</label>
+                <input type="text" id="name" name="name" class="formInput" placeholder="Veuillez saisir votre nom" required>
+            </div>
+            <div class="divClass">
+                <button type="submit" name="button" value="bouton_01" id="bouton">Submit</button>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
