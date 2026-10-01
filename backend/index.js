@@ -62,19 +62,22 @@ app.set('layout', '../views/layouts/layout')
 //     res.render('pages/accueil') ; // on donne le chemin dans views, et on omet le .ejs
 // });
 
-const allRouter = require('./routes/allRouter');
-app.use('/jokes', allRouter);
+// const allRouter = require('./routes/allRouter');
+// app.use('/jokes', allRouter);
 
-const randomRouter = require('./routes/randomRouter')
-app.use('/jokes', randomRouter);
+// const randomRouter = require('./routes/randomRouter')
+// app.use('/jokes', randomRouter);
 
-const showRouteParamsRouter = require('./routes/showRouteParamsRouter')
-app.use('/user', showRouteParamsRouter)
+// const showRouteParamsRouter = require('./routes/showRouteParamsRouter')
+// app.use('/user', showRouteParamsRouter)
 
+
+const showGetParamsRouter = require('./routes/showGetParamsRouter');
+app.use('/', showGetParamsRouter);
 
 
 app.get('/{*splat}', (req, res) => {
-    res.redirect('/user/116')
+    res.redirect('/')
 })
 app.listen(PORT, () => {
     console.log(`Server is running at http://localhost:${PORT}`);
