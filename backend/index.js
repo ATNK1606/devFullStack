@@ -4,7 +4,7 @@ const cors = require('cors')
 const path = require('path')
 dotenv.config()
 const PORT = process.env.PORT || 3000;
-
+require('../backend/database/databaseConfig')
 
 const app = express ();
 app.set('view engine', 'ejs'); // Définition du moteur de rendu
@@ -62,15 +62,20 @@ app.set('layout', '../views/layouts/layout')
 //     res.render('pages/accueil') ; // on donne le chemin dans views, et on omet le .ejs
 // });
 
-const allRouter = require('./routes/allRouter');
-app.use('/jokes', allRouter);
+// const allRouter = require('./routes/allRouter');
+// app.use('/jokes', allRouter);
 
-const randomRouter = require('./routes/randomRouter')
-app.use('/jokes', randomRouter);
+// const randomRouter = require('./routes/randomRouter')
+// app.use('/jokes', randomRouter);
 
+const moviesRouter = require('./routes/moviesRouter')
+app.use('/12.1_mongoose_exo01', moviesRouter)
+
+const homeRouter = require('./routes/homeRouter')
+app.use('/12.1_mongoose_exo01', homeRouter);
 
 app.get('/{*splat}', (req, res) => {
-    res.redirect('/jokes/list')
+    res.redirect('/12.1_mongoose_exo01')
 })
 app.listen(PORT, () => {
     console.log(`Server is running at http://localhost:${PORT}`);
